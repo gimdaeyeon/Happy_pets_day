@@ -104,6 +104,7 @@ public class SitterApplyLicenseFileService {
                 SitterApplyLicenseFile fileDto = saveFile(file, userNumber, applyNumber);
 
                 fileDto.setApplyFileTitle(title);
+                fileDto.setApplyNumber(applyNumber);
                 register(fileDto);
             }
         }

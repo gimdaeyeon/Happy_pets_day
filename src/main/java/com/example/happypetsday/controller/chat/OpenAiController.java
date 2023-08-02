@@ -1,5 +1,6 @@
 package com.example.happypetsday.controller.chat;
 
+import com.example.happypetsday.aspect.annotation.LoggingPointCut;
 import com.example.happypetsday.service.chat.OpenAiService;
 import com.example.happypetsday.vo.AiChatVo;
 import lombok.RequiredArgsConstructor;

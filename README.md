@@ -12,10 +12,6 @@
 5. **챗봇**을 통한 사이트 문의
 
 ## 목차
-- [팀명 : NPE 단속반](#팀명--npe-단속반)
-- [프로젝트 이름 : happy-pets-day - Spring Boot Project](#프로젝트-이름--happy-pets-day---spring-boot-project)
-  - [📚프로젝트 주제](#프로젝트-주제)
-  - [목차](#목차)
   - [팀 구성](#팀-구성)
   - [ERD구성](#erd구성)
   - [Tools](#tools)

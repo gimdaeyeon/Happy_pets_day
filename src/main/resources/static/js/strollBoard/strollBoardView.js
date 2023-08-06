@@ -95,7 +95,7 @@ function replyWrite() {
     if (loginNumber == -1) {
         alert('로그인을 해주세요');
         window.location.href = '/user/login';
-        return;
+        return;     //조기반환
     }
 
     let strollReplyContent = $('#reply-content').val();

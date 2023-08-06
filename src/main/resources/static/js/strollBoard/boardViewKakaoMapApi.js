@@ -6,28 +6,28 @@ let mapContainer = document.getElementById('map'), // 지도를 표시할 div
 
 let map = new kakao.maps.Map(mapContainer, mapOption);
 
-// 마커가 표시될 위치입니다
+// 마커가 표시될 위치
 let markerPosition = new kakao.maps.LatLng(boardLat, boardLng);
 
-// 마커를 생성합니다
+// 마커를 생성
 let marker = new kakao.maps.Marker({
     position: markerPosition
 });
 
-// 마커가 지도 위에 표시되도록 설정합니다
+// 마커가 지도 위에 표시되도록 설정
 marker.setMap(map);
 
-// 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+// 커스텀 오버레이에 표출될 내용
 let content = '<div class="customoverlay">' +
     `  <a href="https://map.kakao.com/link/map/${place},${boardLat}, ${boardLng}" target="_blank">` +
     `    <span class="title">산책 날짜 : ${date}  <br/> 모임장소 : ${place}</span>` +
     '  </a>' +
     '</div>';
 
-// 커스텀 오버레이가 표시될 위치입니다
+// 커스텀 오버레이가 표시될 위치
 let position = new kakao.maps.LatLng(boardLat, boardLng);
 
-// 커스텀 오버레이를 생성합니다
+// 커스텀 오버레이를 생성
 let customOverlay = new kakao.maps.CustomOverlay({
     map: map,
     position: position,

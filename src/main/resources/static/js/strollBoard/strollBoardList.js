@@ -11,6 +11,7 @@ $('.search-txt').on('keypress', function (e) {
     }
 });
 
+// 페이지에 진입과 동시에 게시글리스트 가져오기 실행
 boardSearchAjax(1);
 
 //산책게시판 검색 Ajax

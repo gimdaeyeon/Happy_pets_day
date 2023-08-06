@@ -19,13 +19,17 @@ const infowindow = new kakao.maps.InfoWindow({zindex: 1});
 // 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시
 searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 
+// 지도를 클릭했을 때의 이벤트 리스너
 kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
+    // 클릭한 위치의 좌표로 주소를 검색
     searchDetailAddrFromCoords(mouseEvent.latLng, function (result, status) {
         let address = result[0].address.address_name;
         let addressTokens = address.split(" ");
 
-        if (status !== kakao.maps.services.Status.OK) return;  // 조기 반환
+        // 검색이 성공적으로 수행되지 않으면 이 함수를 빠져나감
+        if (status !== kakao.maps.services.Status.OK) return;
 
+        // 마커설정 및 인포윈도우에 주소 표시
         let detailAddr = !!result[0].road_address ? `<div>도로명주소 : ${result[0].road_address.address_name}</div>` : '';
         detailAddr += `<div>지번 주소 : ${result[0].address.address_name}</div>`;
 
@@ -43,9 +47,6 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
         let lat = mouseEvent.latLng.getLat();
         let lng = mouseEvent.latLng.getLng();
 
-        console.log("위도 : " + lat);
-        console.log("경도 : " + lng);
-
         $('.marker-lat').val(lat);
         $('.marker-lng').val(lng);
 
@@ -53,18 +54,22 @@ kakao.maps.event.addListener(map, 'click', function (mouseEvent) {
     });
 });
 
+// 지도가 이동하면 새로운 중심 좌표에 대한 주소를 검색
 kakao.maps.event.addListener(map, 'idle', function () {
     searchAddrFromCoords(map.getCenter(), displayCenterInfo);
 });
 
+// 주어진 좌표로부터 주소를 검색하는 함수
 function searchAddrFromCoords(coords, callback) {
     geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
 }
 
+// 주어진 좌표로부터 상세 주소를 검색하는 함수
 function searchDetailAddrFromCoords(coords, callback) {
     geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
 }
 
+// 지도 중심의 주소 정보를 화면에 표시하는 함수
 function displayCenterInfo(result, status) {
     if (status !== kakao.maps.services.Status.OK) return;  // 조기 반환
 
@@ -82,8 +87,10 @@ function displayCenterInfo(result, status) {
     }
 }
 
+// 장소 검색 결과를 처리하는 콜백 함수
 function placesSearchCB(data, status, pagination) {
-    if (status !== kakao.maps.services.Status.OK) return;  // 조기 반환
+    // 검색이 성공적으로 수행되지 않으면 이 함수를 빠져나감
+    if (status !== kakao.maps.services.Status.OK) return;
 
     const place = data[0];
     const latLng = new kakao.maps.LatLng(place.y, place.x);

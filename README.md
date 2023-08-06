@@ -12,6 +12,10 @@
 5. **챗봇**을 통한 사이트 문의
 
 ## 목차
+- [팀명 : NPE 단속반](#팀명--npe-단속반)
+- [프로젝트 이름 : happy-pets-day - Spring Boot Project](#프로젝트-이름--happy-pets-day---spring-boot-project)
+  - [📚프로젝트 주제](#프로젝트-주제)
+  - [목차](#목차)
   - [팀 구성](#팀-구성)
   - [ERD구성](#erd구성)
   - [Tools](#tools)
@@ -112,13 +116,13 @@
 ### AOP 활용 실행속도 측정 어노테이션<a href="https://github.com/gimdaeyeon/happy-pets-day/wiki/AOP%ED%99%9C%EC%9A%A9-%EC%8B%A4%ED%96%89%EC%86%8D%EB%8F%84-%EC%B8%A1%EC%A0%95-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98"> 기능소개 WIKI로 이동</a>
 
 <a href="https://github.com/gimdaeyeon/happy-pets-day/wiki/AOP%ED%99%9C%EC%9A%A9-%EC%8B%A4%ED%96%89%EC%86%8D%EB%8F%84-%EC%B8%A1%EC%A0%95-%EC%96%B4%EB%85%B8%ED%85%8C%EC%9D%B4%EC%85%98"> 
- <img src="https://file.notion.so/f/s/f7ee2367-dfc9-47ec-bfb0-40d5eb2419d9/Untitled.png?id=1b60e89e-5048-4883-b74a-a4cb1a399fa4&table=block&spaceId=922ca3ea-469b-45a5-acae-07669690df71&expirationTimestamp=1691056800000&signature=TVifaFvLZRgNzESq7OMyCmZp8xJ8w1U5dohztgR6Pd4&downloadName=Untitled.png" width="500">
+ <img src="https://file.notion.so/f/s/f7ee2367-dfc9-47ec-bfb0-40d5eb2419d9/Untitled.png?id=1b60e89e-5048-4883-b74a-a4cb1a399fa4&table=block&spaceId=922ca3ea-469b-45a5-acae-07669690df71&expirationTimestamp=1691380800000&signature=7z7JRXYYCa602vXc0WuaeKJaHrntfieW7Vnpf07mXhY&downloadName=Untitled.png" width="500">
 </a>
 
 ### 커스텀 에러페이지<a href="https://github.com/gimdaeyeon/happy-pets-day/wiki/%EC%BB%A4%EC%8A%A4%ED%85%80-%EC%97%90%EB%9F%AC%ED%8E%98%EC%9D%B4%EC%A7%80"> 기능소개 WIKI로 이동</a>
 
 <a href="https://github.com/gimdaeyeon/happy-pets-day/wiki/%EC%BB%A4%EC%8A%A4%ED%85%80-%EC%97%90%EB%9F%AC%ED%8E%98%EC%9D%B4%EC%A7%80"> 
- <img src="https://file.notion.so/f/s/b3010c7e-b19e-49ee-ae2d-b4a4d3c81892/Untitled.png?id=edd87d6e-36c7-4e03-9d23-f86b1fcb8423&table=block&spaceId=922ca3ea-469b-45a5-acae-07669690df71&expirationTimestamp=1691056800000&signature=B4g5DMb10eRHAq4hMUS6BQZCg-aOnISaxbNAaolWq8w&downloadName=Untitled.png" width="500">
+ <img src="https://file.notion.so/f/s/b3010c7e-b19e-49ee-ae2d-b4a4d3c81892/Untitled.png?id=edd87d6e-36c7-4e03-9d23-f86b1fcb8423&table=block&spaceId=922ca3ea-469b-45a5-acae-07669690df71&expirationTimestamp=1691380800000&signature=YqWjS76ORd4g63k3ttII3O_27b9ed0GSN2oIdcRN5bo&downloadName=Untitled.png" width="500">
 </a>
 
 

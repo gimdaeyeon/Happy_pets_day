@@ -39,16 +39,16 @@ public interface StrollBoardMapper {
     //    마이페이지 내 산책모임 게시물 조회
     List<StrollBoardVo> selectMypageBoard(@Param("userNumber") Long userNumber, @Param("criteria") Criteria criteria);
 
-//    마이페이지 내 산책모임 게시물 수 조회
+    //    마이페이지 내 산책모임 게시물 수 조회
     int selectTotalMypageBoard(Long userNumber);
 
-//    메인화면에서 산책 게시판 조회
+    //    메인화면에서 산책 게시판 조회
     List<StrollBoardVo> selectMainList(MainStrollSearchVo mainStrollSearchVo);
 
-//  산책게시판 검색
+    //  산책게시판 검색
 List<StrollBoardVo> selectSearch(@Param("strollBoardSearchVo") StrollBoardSearchVo strollBoardSearchVo,
                               @Param("criteria") Criteria criteria);
-// 산책게시판 검색결과 수
+    // 산책게시판 검색결과 수
     int selectSearchTotal(StrollBoardSearchVo strollBoardSearchVo);
 
 }

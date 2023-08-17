@@ -42,7 +42,7 @@
 
 ## ERD구성
 
-<details>
+<details open>
 <summary>ERD이미지</summary>
 
 [![NPE단속반 erd구성](./src/main/resources/static/img/Spring_Erd.png)](https://dbdiagram.io/d/647f4f07722eb774947ee12c)

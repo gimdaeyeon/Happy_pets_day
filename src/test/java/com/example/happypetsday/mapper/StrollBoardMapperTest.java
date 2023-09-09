@@ -46,4 +46,26 @@ class StrollBoardMapperTest {
 
         assertThat(findBoard.getStrollBoardNumber()).isEqualTo(strollBoard.getStrollBoardNumber());
     }
+
+    @Test
+    @DisplayName("게시글 수정")
+    void test(){
+        strollBoardMapper.insert(strollBoard);
+
+        StrollBoardDto updateBoard = strollBoardMapper.select(strollBoard.getStrollBoardNumber());
+
+        updateBoard.setStrollBoardTitle("게시글 제목 수정");
+
+        strollBoardMapper.update(updateBoard);
+
+        assertThat(updateBoard.getStrollBoardNumber()).isEqualTo((strollBoard.getStrollBoardNumber()));
+        assertThat(updateBoard.getStrollBoardTitle()).isNotEqualTo(strollBoard.getStrollBoardTitle());
+
+    }
+
+
+
+
+
+
 }

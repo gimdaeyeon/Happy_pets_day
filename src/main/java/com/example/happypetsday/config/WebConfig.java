@@ -2,6 +2,7 @@ package com.example.happypetsday.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -16,6 +17,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
 //        addResourceHandlers() 리소스 경로와 연결될 URL 경로를 작성한다.
 //        리소스는 자원이고 현재 우리가 필요한 자원을 이미지 파일이다.
         registry.addResourceHandler("/upload/**")

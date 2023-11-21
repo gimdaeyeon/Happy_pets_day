@@ -52,7 +52,7 @@ public class StrollService {
     //   게시글 조회 수 업데이트
     public void modifyViewCount(Long strollBoardNumber) {
         if (strollBoardNumber == null) {
-            throw new IllegalArgumentException("게시글 번호 누락(조회수 없데이트)");
+            throw new IllegalArgumentException("게시글 번호 누락(조회수 업데이트)");
         }
         strollBoardMapper.updateViewCount(strollBoardNumber);
     }
@@ -120,13 +120,13 @@ public class StrollService {
         int totalCount = 0;
         long listSize = 0L;
 
-        if(userNumber== null){
+        if (userNumber == null) {
 //            회원번호가 없으면(로그인이 되어있지 않으면)
 //            조회 조건을 전체게시물로 하게끔 설정후 바로 반환
-                mainStrollSearchVo.setFirstBoolean(false);
-                mainStrollSearchVo.setSecondBoolean(false);
-                return strollBoardMapper.selectMainList(mainStrollSearchVo);
-            }
+            mainStrollSearchVo.setFirstBoolean(false);
+            mainStrollSearchVo.setSecondBoolean(false);
+            return strollBoardMapper.selectMainList(mainStrollSearchVo);
+        }
 
 //       회원주소 가져와서 "서울", "강남구" 이런식으로 분리
 
@@ -137,46 +137,45 @@ public class StrollService {
 
 
 //        메인화면에 띄워줄 산책게시판 3개 목록 리스트에 조건에 맞게 추가
-            for (int i = 0; i < 3; i++) {
-                List<StrollBoardVo> tmpList = strollBoardMapper.selectMainList(mainStrollSearchVo);
-                strollBoardList.addAll(tmpList);
+        for (int i = 0; i < 3; i++) {
+            List<StrollBoardVo> tmpList = strollBoardMapper.selectMainList(mainStrollSearchVo);
+            strollBoardList.addAll(tmpList);
 
-                if (listSize != strollBoardList.size()) {
-                    totalCount += tmpList.size();
-                }
-
-                listSize = strollBoardList.size();
-
-                if (listSize >= 3) {
-                    return strollBoardList;
-                } else if (mainStrollSearchVo.getSecondBoolean()) {
-                    mainStrollSearchVo.setSecondBoolean(false);
-                } else if (mainStrollSearchVo.getFirstBoolean()) {
-                    mainStrollSearchVo.setFirstBoolean(false);
-                }
-
-                mainStrollSearchVo.setSize((long) totalCount);
+            if (listSize != strollBoardList.size()) {
+                totalCount += tmpList.size();
             }
 
-            return strollBoardList;
+            listSize = strollBoardList.size();
+
+            if (listSize >= 3) {
+                return strollBoardList;
+            } else if (mainStrollSearchVo.getSecondBoolean()) {
+                mainStrollSearchVo.setSecondBoolean(false);
+            } else if (mainStrollSearchVo.getFirstBoolean()) {
+                mainStrollSearchVo.setFirstBoolean(false);
+            }
+
+            mainStrollSearchVo.setSize((long) totalCount);
         }
 
-//        산책게시판 검색
-        @Transactional(readOnly = true)
-        public List<StrollBoardVo> findBoardSearch(StrollBoardSearchVo strollBoardSearchVo,
-                                                   Criteria criteria){
-            return strollBoardMapper.selectSearch(strollBoardSearchVo,criteria);
-        }
+        return strollBoardList;
+    }
 
-//        산책게시판 검색 카운트
+    //        산책게시판 검색
     @Transactional(readOnly = true)
-    public int findBoardSearchTotal(StrollBoardSearchVo strollBoardSearchVo){
+    public List<StrollBoardVo> findBoardSearch(StrollBoardSearchVo strollBoardSearchVo,
+                                               Criteria criteria) {
+        return strollBoardMapper.selectSearch(strollBoardSearchVo, criteria);
+    }
+
+    //        산책게시판 검색 카운트
+    @Transactional(readOnly = true)
+    public int findBoardSearchTotal(StrollBoardSearchVo strollBoardSearchVo) {
         return strollBoardMapper.selectSearchTotal(strollBoardSearchVo);
     }
 
 
-
-    }
+}
 
 
 

@@ -1,7 +1,7 @@
 // gpt 통신
 export function sendMessage(aiChatArr, callback, defaultChatMsg) {
     $.ajax({
-        url: '/chatBot/question',
+        url:  '/chatBot/question',
         type: 'post',
         data : sessionStorage.getItem('aiChatData'),
         contentType:'application/json; charset=utf-8',

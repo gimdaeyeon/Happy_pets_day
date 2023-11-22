@@ -33,11 +33,11 @@ public class PrincipalDetails implements UserDetails {
     // 현재 로그인한 사용자의 권한정보가 필요할때마다 호출된다. 혹은 필요할때마다 직접 호출해 사용할수도 있다
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-//        System.out.println("getAuthorities() 호출");
-//
-//        Collection<GrantedAuthority> collect = new ArrayList<>();
-//
-//        // DB 에서 user 의 권한(들) 읽어오기
+        System.out.println("getAuthorities() 호출");
+
+        Collection<GrantedAuthority> collect = new ArrayList<>();
+
+        // DB 에서 user 의 권한(들) 읽어오기
 //        List<Authority> list = userService.selectAuthoritiesById(user.getId());
 //
 //        for(Authority auth : list){
@@ -54,9 +54,7 @@ public class PrincipalDetails implements UserDetails {
 //                }
 //            });
 //        }
-
-//        return collect;
-        return null;
+        return collect;
     }
 
     @Override

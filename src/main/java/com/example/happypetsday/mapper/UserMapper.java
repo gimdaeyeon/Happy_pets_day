@@ -40,4 +40,7 @@ public interface UserMapper {
      // 회원번호로 이름 가져오기
      String getUserName(Long userNumber);
 
+     // 아이디로 회원 정보 가져오기
+    UserDto selectUserInfoByUserId(String userId);
+
 }

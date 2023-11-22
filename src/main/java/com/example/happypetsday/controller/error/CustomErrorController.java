@@ -1,5 +1,6 @@
 package com.example.happypetsday.controller.error;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@Slf4j
 public class CustomErrorController implements ErrorController {
 
     @GetMapping("/error")
@@ -18,7 +20,9 @@ public class CustomErrorController implements ErrorController {
 
         if (attribute != null) {
             int statusCode = Integer.valueOf(attribute.toString());
-            System.out.println(statusCode);
+            System.out.println("===============");
+            log.info(String.valueOf(statusCode));
+            System.out.println("===============");
             model.addAttribute("errorCode", statusCode);
             String errorMsg = "";
 

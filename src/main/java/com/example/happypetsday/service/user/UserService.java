@@ -121,9 +121,15 @@ public class UserService {
      */
     @Transactional(readOnly = true)
     public String getUserName(Long userNumber) {
-        String userName = userMapper.getUserName(userNumber);
+        return userMapper.getUserName(userNumber);
+    }
 
-        return userName;
+    @Transactional(readOnly = true)
+    public UserDto findUserInfoByUserId(String userId){
+        if(userId == null){
+            throw new IllegalArgumentException("회원id가 입력되지 않았습니다.");
+        }
+        return userMapper.selectUserInfoByUserId(userId);
     }
 
 }

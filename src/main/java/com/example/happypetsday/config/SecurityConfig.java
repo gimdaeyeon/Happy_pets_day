@@ -1,5 +1,6 @@
 package com.example.happypetsday.config;
 
+import com.example.happypetsday.security.CustomLoginSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,7 +35,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         return http
-//                .csrf(csrf -> csrf.disable())     // CSRF 비활성화
+                .csrf(csrf -> csrf.disable())     // CSRF 비활성화
                 /**********************************************
                  * ① request URL 에 대한 접근 권한 세팅  : authorizeHttpRequests()
                  * .authorizeHttpRequests( AuthorizationManagerRequestMatcherRegistry)
@@ -64,11 +65,11 @@ public class SecurityConfig {
 
                         // 로그인 성공직후 수행할코드
 //                        .successHandler(AuthenticationSuccessHandler)  // 로그인 성공후 수행할 코드.
-                        .successHandler(new CustomLoginSuccessHandler("/home"))
+                        .successHandler(new CustomLoginSuccessHandler("/"))
 
                         // 로그인 실패하면 수행할 코드
                         // .failureHandler(AuthenticationFailureHandler)
-                        .failureHandler(new CustomLoginFailureHandler())
+//                        .failureHandler(new CustomLoginFailureHandler())
                 )
                 /********************************************
                  * ③ 로그아웃 설정
@@ -95,7 +96,6 @@ public class SecurityConfig {
 //                        // .accessDeniedHandler(AccessDeniedHandler)
 //                        .accessDeniedHandler(new CustomAccessDeniedHandler())
 //                )
-
 
                 .build();
     }

@@ -93,4 +93,21 @@
         WHERE USER_NUMBER = #{userNumber}
     </select>
 
+    <select id="selectUserInfoByUserId" resultType="userDto">
+        SELECT USER_NUMBER,
+               USER_ID,
+               USER_PASSWORD,
+               USER_NAME,
+               USER_GENDER,
+               USER_EMAIL,
+               TO_CHAR(USER_BIRTH, 'YYYY-MM-DD') AS USER_BIRTH,
+               USER_PHONE_NUMBER,
+               USER_ADDRESS,
+               USER_ZONE_CODE,
+               USER_ADDRESS_DETAIL,
+               USER_ADDRESS_TIP
+        FROM TBL_USER
+        WHERE  USER_ID= #{userId}
+    </select>
+
 </mapper>

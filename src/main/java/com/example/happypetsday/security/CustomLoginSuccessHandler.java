@@ -42,12 +42,12 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
         System.out.println("authorities: " + roleNames);
 
         // 로그인 시간을 세션에 저장하기 (※ logout 예제에서 사용)
-        LocalDateTime loginTime = LocalDateTime.now();
-        System.out.println("로그인 시간: " + loginTime);
-        request.getSession().setAttribute("loginTime", loginTime);
+//        LocalDateTime loginTime = LocalDateTime.now();
+//        System.out.println("로그인 시간: " + loginTime);
+//        request.getSession().setAttribute("loginTime", loginTime);
 
         System.out.println(userDetails.getUser().getUserNumber());
-//        request.getSession().setAttribute("userNumber", userDetails.getUser().getUserNumber());
+        request.getSession().setAttribute("userNumber", userDetails.getUser().getUserNumber());
 
         // 로그인 직전 url 로 redirect  하기
         super.onAuthenticationSuccess(request, response, authentication);

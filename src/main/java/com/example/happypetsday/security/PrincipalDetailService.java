@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 // UserDetailsService
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 public class PrincipalDetailService implements UserDetailsService {
 
     private final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -30,8 +33,13 @@ public class PrincipalDetailService implements UserDetailsService {
         // 해당 username 의 User 가 DB 에 있었다면
         // UserDetails 를 생성하여 리턴
         if(user != null){
+            System.out.println(BCrypt.hashpw("aaa", BCrypt.gensalt(10)));
+
+//            passwordEncoder.
+
             PrincipalDetails userDetails = new PrincipalDetails(user);
             userDetails.setUserService(userService);
+            System.out.println(userDetails.getUser().getUserPassword());
             return userDetails;
         }
 

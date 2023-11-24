@@ -38,32 +38,32 @@ public class UserController {
 
 
     //    로그인 처리
-//    @PostMapping("/login")
-//    public RedirectView login(String userId, String userPassword, HttpServletRequest req, RedirectAttributes redirectAttributes) {
-//        try {
-//            UserDto user = userService.findUserNumberAndStatus(userId, userPassword);
-//
-//            switch (user.getUserStatus()) {
-////                회원의 상태가 관리자인 경우 관리자번호도 함께 부여
-//                case 0:
-//                    req.getSession().setAttribute("adminNumber", user.getUserNumber());
-//                    break;
-////                회원의 상태가 탈퇴 회원인 경우 일단 회원가입 화면으로 이동
-//                case -1:
-//                    String msg = "관리자에 의해 제명되었습니다. 이의사항이 있을 경우 관리자 email로 문의하세요.";
-//                    redirectAttributes.addFlashAttribute("guideMsg", msg);
-//                    return new RedirectView("/user/join");
-//            }
-//
-//            req.getSession().setAttribute("userNumber", user.getUserNumber());
-//
-//        } catch (IllegalArgumentException e) {
-//            e.printStackTrace();
-//            return new RedirectView("/user/login");
-//        }
-//
-//        return new RedirectView("/");
-//    }
+    @PostMapping("/login")
+    public RedirectView login(String userId, String userPassword, HttpServletRequest req, RedirectAttributes redirectAttributes) {
+        try {
+            UserDto user = userService.findUserNumberAndStatus(userId, userPassword);
+
+            switch (user.getUserStatus()) {
+//                회원의 상태가 관리자인 경우 관리자번호도 함께 부여
+                case 0:
+                    req.getSession().setAttribute("adminNumber", user.getUserNumber());
+                    break;
+//                회원의 상태가 탈퇴 회원인 경우 일단 회원가입 화면으로 이동
+                case -1:
+                    String msg = "관리자에 의해 제명되었습니다. 이의사항이 있을 경우 관리자 email로 문의하세요.";
+                    redirectAttributes.addFlashAttribute("guideMsg", msg);
+                    return new RedirectView("/user/join");
+            }
+
+            req.getSession().setAttribute("userNumber", user.getUserNumber());
+
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            return new RedirectView("/user/login");
+        }
+
+        return new RedirectView("/");
+    }
 
     @GetMapping("/login")
     public String login() {

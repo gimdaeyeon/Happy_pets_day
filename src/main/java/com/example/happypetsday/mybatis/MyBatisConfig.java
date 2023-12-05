@@ -28,7 +28,6 @@ public class MyBatisConfig {
     // 이 객체를 불러와서 설정을 해줄 수 있다.
     private final ApplicationContext applicationContext;
 
-
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     // 이 어노테이션은 외부파일의 설정 값들을 자바 객체로 가져올 때 사용한다.
     // 스프링부트에서는 application.properties 라는 파일에 설정값을 전부 작성하기 때문에

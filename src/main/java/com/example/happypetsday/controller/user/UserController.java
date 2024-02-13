@@ -4,6 +4,7 @@ import com.example.happypetsday.dto.UserDto;
 import com.example.happypetsday.service.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class UserController {
 
     //    회원가입 화면 이동
     @GetMapping("/join")
-    public String join() {
+    public String join(Model model) {
         return "user/join";
     }
 
